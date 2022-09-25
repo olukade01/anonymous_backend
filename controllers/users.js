@@ -8,12 +8,12 @@ userRouter.get("/", async (request, response) => {
 });
 
 userRouter.post("/", async (req, res) => {
-  const { email, name, password } = req.body;
-  const existingUser = await User.findOne({ email });
+  const { name, email, password } = req.body;
+  const existingUser = await User.findOne({ name });
   if (existingUser) {
     return res
       .status(400)
-      .json({ error: "email already existed, please use another email" });
+      .json({ error: "Username already existed, please use another Username" });
   } else if (!password) {
     return res.status(400).json({ error: "password required" });
   } else if (password.length < 3) {
@@ -21,8 +21,8 @@ userRouter.post("/", async (req, res) => {
   }
   const passwordHash = await bcrypt.hash(password, 10);
   const user = new User({
-    email,
     name,
+    email,
     passwordHash,
   });
   const savedUser = await user.save();

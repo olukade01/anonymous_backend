@@ -23,11 +23,11 @@ messageRouter.get("/", async (request, response) => {
   response.status(200).json(result);
 });
 
-messageRouter.post("/:email", async (req, res) => {
+messageRouter.post("/:name", async (req, res) => {
   const { message } = req.body;
 
-  const email = req.params.email;
-  const user = await User.findOne({ email });
+  const name = req.params.name;
+  const user = await User.findOne({ name });
 
   const newMessage = new Message({ message });
   const savedMessage = await newMessage.save();
