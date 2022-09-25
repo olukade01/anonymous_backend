@@ -1,0 +1,16 @@
+@URL = http://localhost:3001/api/users/
+
+GET {{URL}}
+
+###
+POST {{URL}}
+Content-Type: application/json
+
+{
+  "email": "adebayo1",
+  "name": "olukade muzzammil",
+  "password": "adebayo"
+}
+
+###
+DELETE {{URL}}

@@ -1,0 +1,15 @@
+@URL = http://localhost:3001/api/message
+
+GET {{URL}}
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkZWJheW8iLCJpZCI6IjYyMjYyMDIwNmMwMWI3MmZjNGU4NWQ1ZCIsImlhdCI6MTY0NjY2NTg1MiwiZXhwIjoxNjQ2NjY5NDUyfQ.lN1TwEZgNnOZSt-z3VoLlO5a2GP-3fOIkuyYlDc5cpo
+
+###
+POST {{URL}}/adebayo
+Content-Type: application/json
+
+{
+  "message": "bismillahi"
+}
+
+###
+DELETE {{URL}}
